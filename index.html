@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-spinner">
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
     <div class="background-effects">
         <div class="glow glow-1"></div>
         <div class="glow glow-2"></div>
@@ -17,12 +28,13 @@
 
     <nav id="navbar">
         <div class="nav-content">
-            <a href="#" class="logo">SRS<span class="highlight">.</span></a>
+            <a href="#hero" class="logo">SRS<span class="highlight">.</span></a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <div class="line"></div>
@@ -33,6 +45,8 @@
     </nav>
 
     <header id="hero" class="section">
+        <!-- Canvas for Particles -->
+        <canvas id="particles-canvas"></canvas>
         <div class="container hero-content fade-in">
             <p class="greeting">Hello, I'm</p>
             <h1>Soumya Ranjan Sahoo</h1>
@@ -58,7 +72,7 @@
         <div class="container">
             <div class="stats-grid fade-in">
                 <div class="stat-item glass-card">
-                    <h3 class="stat-number">3+</h3>
+                    <h3 class="stat-number"><span class="counter" data-target="3">0</span>+</h3>
                     <p class="stat-label">Major Projects</p>
                 </div>
                 <div class="stat-item glass-card">
@@ -66,7 +80,7 @@
                     <p class="stat-label">Research Intern (Bhubaneswar)</p>
                 </div>
                 <div class="stat-item glass-card">
-                    <h3 class="stat-number">95%</h3>
+                    <h3 class="stat-number"><span class="counter" data-target="95">0</span>%</h3>
                     <p class="stat-label">AI Model Accuracy</p>
                 </div>
             </div>
@@ -91,7 +105,7 @@
             
             <div class="skills-category">
                 <h3><i class="fa-solid fa-code"></i> Programming</h3>
-                <div class="skills-grid">
+                <div class="skills-grid stagger-grid">
                     <div class="skill-card glass-card">Python</div>
                     <div class="skill-card glass-card">C</div>
                     <div class="skill-card glass-card">JavaScript</div>
@@ -101,7 +115,7 @@
 
             <div class="skills-category">
                 <h3><i class="fa-solid fa-brain"></i> AI / ML</h3>
-                <div class="skills-grid">
+                <div class="skills-grid stagger-grid">
                     <div class="skill-card glass-card">PyTorch</div>
                     <div class="skill-card glass-card">TensorFlow</div>
                     <div class="skill-card glass-card">OpenCV</div>
@@ -114,7 +128,7 @@
 
             <div class="skills-category">
                 <h3><i class="fa-solid fa-globe"></i> Web Development</h3>
-                <div class="skills-grid">
+                <div class="skills-grid stagger-grid">
                     <div class="skill-card glass-card">HTML</div>
                     <div class="skill-card glass-card">CSS</div>
                     <div class="skill-card glass-card">Bootstrap</div>
@@ -127,7 +141,7 @@
 
             <div class="skills-category">
                 <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools</h3>
-                <div class="skills-grid">
+                <div class="skills-grid stagger-grid">
                     <div class="skill-card glass-card">GitHub</div>
                     <div class="skill-card glass-card">VS Code</div>
                     <div class="skill-card glass-card">Google Colab</div>
@@ -141,12 +155,12 @@
     <section id="projects" class="section">
         <div class="container fade-in">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
+            <div class="projects-grid stagger-grid">
                 
-                <div class="project-card glass-card">
+                <div class="project-card premium-border">
                     <div class="project-content">
                         <div class="project-icon"><i class="fa-solid fa-car"></i></div>
-                        <h3>Vehicle Logo Detection using YOLOv8</h3>
+                        <h3>Vehicle Logo Detection</h3>
                         <p>Developed a real-time vehicle logo detection system using YOLOv8 trained on a custom dataset of 12,000 images with 97% accuracy.</p>
                         <div class="project-tech">
                             <span>YOLOv8</span><span>Python</span><span>OpenCV</span>
@@ -155,7 +169,7 @@
                     </div>
                 </div>
 
-                <div class="project-card glass-card">
+                <div class="project-card premium-border">
                     <div class="project-content">
                         <div class="project-icon"><i class="fa-solid fa-video"></i></div>
                         <h3>Video Anomaly Detection</h3>
@@ -167,10 +181,10 @@
                     </div>
                 </div>
 
-                <div class="project-card glass-card">
+                <div class="project-card premium-border">
                     <div class="project-content">
                         <div class="project-icon"><i class="fa-solid fa-house-medical-flag"></i></div>
-                        <h3>APEX Disaster Management App</h3>
+                        <h3>APEX Disaster App</h3>
                         <p>Developed a disaster management mobile application supporting emergency coordination and incident reporting.</p>
                         <div class="project-tech">
                             <span>React Native</span><span>Node.js</span><span>MongoDB</span>
@@ -186,35 +200,79 @@
     <section id="contact" class="section">
         <div class="container fade-in">
             <h2 class="section-title">Initiate Protocol</h2>
-            <p class="contact-subtitle">Interested in collaborating or have a question? Let's connect.</p>
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <a href="mailto:soumyaranjansomu02@gmail.com" class="btn btn-primary" style="margin: 0 auto; box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);"><i class="fa-solid fa-envelope"></i> soumyaranjansomu02@gmail.com</a>
+            
+            <div class="contact-wrapper glass-card">
+                <div class="contact-info">
+                    <h3>Let's collaborate</h3>
+                    <p class="contact-subtitle-left">Interested in collaborating on a project or just want to say hi? Let's connect and build something amazing together.</p>
+                    
+                    <div class="contact-methods">
+                        <a href="mailto:soumyaranjansomu02@gmail.com" class="contact-method-link">
+                            <div class="contact-method-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-method-text">
+                                <h4>Email Me</h4>
+                                <span>soumyaranjansomu02@gmail.com</span>
+                            </div>
+                        </a>
+                        <div class="contact-method-link">
+                            <div class="contact-method-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-method-text">
+                                <h4>Location</h4>
+                                <span>Bhubaneswar, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="input-group floating-label">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="input-group floating-label">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="input-group floating-label">
+                        <textarea id="message" rows="5" required placeholder=" "></textarea>
+                        <label for="message">Project Details / Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Initialize Connection <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
             </div>
-            <form id="contact-form" class="contact-form glass-card">
-                <div class="input-group">
-                    <input type="text" id="name" required placeholder="Name">
-                </div>
-                <div class="input-group">
-                    <input type="email" id="email" required placeholder="Email Address">
-                </div>
-                <div class="input-group">
-                    <textarea id="message" rows="5" required placeholder="Project Details / Message"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Initialize Connection <i class="fa-solid fa-paper-plane"></i></button>
-            </form>
         </div>
     </section>
 
-    <footer>
+    <footer class="glass-footer section-small">
         <div class="container">
-            <div class="footer-content">
-                <a href="#" class="logo">SRS<span class="highlight">.</span></a>
-                <p>&copy; 2026 Soumya Ranjan Sahoo. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://github.com/SomyaRanjan165" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/soumya-ranjan-sahoo-2b9b2b325" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://instagram.com/unfilteredsoumyaa_09" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">SRS<span class="highlight">.</span></a>
+                    <p>AI/ML Engineer & Full Stack Developer</p>
                 </div>
+                
+                <div class="footer-links-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/SomyaRanjan165" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/soumya-ranjan-sahoo-2b9b2b325" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://instagram.com/unfilteredsoumyaa_09" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Soumya Ranjan Sahoo. All rights reserved.</p>
             </div>
         </div>
     </footer>
