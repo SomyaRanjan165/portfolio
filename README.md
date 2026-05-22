@@ -44,3 +44,5 @@ To view the portfolio locally, simply clone the repository and open `index.html`
 git clone https://github.com/SomyaRanjan165/portfolio.git
 cd portfolio
 ```
+
+## Final Portfolio Optimization Completed
