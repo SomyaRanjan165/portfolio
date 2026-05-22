@@ -1,3 +1,4 @@
+// Added smoother interaction behavior
 // Preloader
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
